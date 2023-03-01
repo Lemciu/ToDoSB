@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import Table from "./Components/Table/Table";
+import AddTask from "./Pages/AddTask/AddTask";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Calendar from "./Components/Calendar/Calendar";
+import {Task} from "./Components/Task/Task";
 
 function App() {
+    const [tasks, setTasks] = useState<Task[]>([])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Table  tasks={tasks} setTasks={setTasks} complete={""}/>}/>
+        <Route path='/completed' element={<Table  tasks={tasks} setTasks={setTasks} complete={"/completed"}/>}/>
+        <Route path='/addTask' element={<AddTask/>}/>
+        <Route path='/editTask/:id' element={<AddTask/>}/>
+        <Route path='/calendar' element={<Calendar />}/>
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

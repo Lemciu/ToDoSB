@@ -1,0 +1,26 @@
+.addTask {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+#addSubmit {
+    margin-top: 10px;
+}
+p {
+    margin-bottom: 0;
+}
+#checkboxForm {
+    margin-right: 5px;
+}
+.justRow {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+}
+.line {
+    margin-top: 25px;
+}
+.priorityBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
